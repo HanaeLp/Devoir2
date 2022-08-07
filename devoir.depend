@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659911942 source:c:\users\hp\documents\hanae\youcode\devoir\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,8 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-float H(float ){
+float tab1[13],tab2[15],tab3[28];
 
-}
+/*void H(float w[], float q[]){
+    float tab3[28];
+    int i,j,k,u;
+
+    for(i = 1; i <= 13; i++){
+        tab3[i] = w[i];
+    }
+    k=i;
+    for(j = 1; j <=15; j++){
+        k++;
+        tab3[k] = q[j];
+    }
+    printf("Le tableau fusionne est: ");
+    for(u = 1; u <= k; u++){
+        printf("%f",tab3[u]);
+    }
+}*/
+
 void G(float a, float b, int c){
 
         printf("\nla plus grande moyenne dans ce classe est %f\n", a);
@@ -13,7 +31,7 @@ void G(float a, float b, int c){
 float U(int b, int d){
 
      int i,j,M,P = 0;
-     float A[b],tmp,tab3[13],Z[28];
+     float A[b],tmp;
 
      for(i=1; i<=b; i++){
             printf("Donner la moyenne de eleve numero %d dans ce classe:\n",i);
@@ -34,32 +52,43 @@ float U(int b, int d){
         }
         for(i=1; i<=b; i++){
             printf("%f\t", A[i]);
-            H(A[i]);
             if(A[i] >= 10){
                 P = P + 1;
             }
         }
-
-        G(A[b], A[1], P);
-       /*if(d == 1){
-            for(i = 1; i <=13; i++){
-                 Z[i] = A[i];
-                 H();
+        for(i=1; i<=b; i++){
+            if(b == 13){
+               tab1[i] = A[i];
+            }
+            if(b == 15){
+               tab2[i] = A[i];
             }
         }
-        if(d == 2){{
-            for(i = 1, j = 13; j <= 28 && i <= 15; i++, j++){
-                 Z[j] = A[i];
-            }
-            printf("\nA la fin de semester :\n");
-            for(i = 1; i<= 28; i++){
-                 printf("%f\t",Z[i]);
-            }
-        }*/
+
+    int k,u;
+
+    for(i = 1; i <= 13; i++){
+        tab3[i] = tab1[i];
+    }
+    k=i;
+    for(j = 1; j <=15; j++){
+        tab3[k] = tab2[j];
+        k++;
+    }
+    if(b == 15){
+        printf("Le tableau fusionne est: ");
+        for(u = 1; u <= k; u++){
+            printf("%f",tab3[u]);
+        }
+    }
+
+   // H(tab1,tab2);
+
+    G(A[b], A[1], P);
  return b;
 }
 
-float classe(int a, int j){
+float classe(int a, int e){
     int K;
 
     if(a == 1){
@@ -67,18 +96,17 @@ float classe(int a, int j){
     } else if (a == 2){
        K = 15;
     }
-    U(K, j);
+    U(K, e);
  return a;
 }
 
 int main()
 {
-    int A,i;
-    for(i=1; i<=2; i++){
-        printf("entrer 1 si veux entrer les moyennes de classe 1, entrer 2 si veux entrer les moyennes de classe 2\n");
-        scanf("%d", &A);
-        printf("pour le classe %d\n", A);
-        classe(A,i);
-    }
-    return 0;
+        int A,i;
+
+        for(i=1; i<=2; i++){
+            printf("Entrer les moyennes de classe %d :\n", i);
+            scanf("%d", &A);
+            classe(A,i);
+        }
 }
